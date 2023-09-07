@@ -25,9 +25,6 @@ BOOL TweakEnabled() {
 - (id)node;
 @end
 
-@interface YTAsyncCollectionView : UICollectionView
-@end
-
 @interface _ASDisplayView : UIView
 @end
 
@@ -54,13 +51,13 @@ NSString *MrBeastifyBundlePath() {
 
 %hook YTSettingsViewController
 - (void)setSectionItems:(NSMutableArray <YTSettingsSectionItem *> *)sectionItems forCategory:(NSInteger)category title:(NSString *)title titleDescription:(NSString *)titleDescription headerHidden:(BOOL)headerHidden {
-    if (category == 2) {
+    if (category == 1) {
         YTSettingsSectionItem *mrBeastifyOption = [[%c(YTSettingsSectionItem) alloc] initWithTitle:@"Enable MrBeastify" titleDescription:@"Adds MrBeast to the YouTube Thumbnails."];
         mrBeastifyOption.hasSwitch = YES;
         mrBeastifyOption.switchVisible = YES;
         mrBeastifyOption.on = TweakEnabled();
         mrBeastifyOption.switchBlock = ^BOOL (YTSettingsCell *cell, BOOL enabled) {
-            [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:EnabledKey];
+            [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:@"EnabledKey"];
             return YES;
         };
         [sectionItems addObject:mrBeastifyOption];
