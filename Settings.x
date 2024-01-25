@@ -43,7 +43,7 @@ static const NSInteger mrBeastifySection = 511;
         settingItemId:0];
     [sectionItems addObject:enabledSwitchItem];
     if ([delegate respondsToSelector:@selector(setSectionItems:forCategory:title:icon:titleDescription:headerHidden:)])
-        [delegate setSectionItems:sectionItems forCategory:mrBeastifySection title:MrBeastify icon:nil titleDescription:nil headerHidden:NO];
+        [delegate setSectionItems:sectionItems forCategory:mrBeastifySection title:@"MrBeastify" icon:nil titleDescription:nil headerHidden:NO];
     else
         [delegate setSectionItems:sectionItems forCategory:mrBeastifySection title:@"MrBeastify" titleDescription:nil headerHidden:NO];
 }
