@@ -9,8 +9,6 @@ extern BOOL TweakEnabled();
 
 static const NSInteger mrBeastifySection = 511;
 
-extern BOOL MrBeastify();
-
 @interface YTSettingsSectionItemManager (MrBeastify)
 - (void)updateMrBeastifySectionWithEntry:(id)entry;
 @end
